@@ -1,0 +1,778 @@
+/*======================== VISTA TABLETS ===========================*/
+/* GRID AREA */
+/* HEADER */
+/* productos vista movil */
+/* categorias vista movil */
+/*======================== VISTA CELULARES ===========================*/
+/* GRID AREA */
+/* HEADER */
+/* ICONOS DE FB E INSTAGRAM Y LOGO ENVIO FLORES */
+/* redes sociales =======*/
+/* LOGO ENVIO FLORES */
+/* productos vista movil */
+/* redes sociales =======*/
+/* LOGO ENVIO FLORES */
+/* VISTA DISPOISTIVOS */
+/* productos vista dispositivos */
+/* categorias vista movil */
+/* VISTA CELULARES */
+/* BODY */
+/* TITULO */
+/* SOCIAL BAR */
+/* NAV */
+/* CATEGORIA VISTA CELULAR */
+/* productos vista movil */
+/* adicionales vista celular */
+/* FOOTER VISTA CELULAR */
+
+@media screen and (max-width: 1280px) {
+
+	#grid-area {
+		display: grid;
+		grid-template-areas: "logo logo "
+		"categorias categorias"
+		"buscador buscador"
+		"productos productos"
+		"entrega entrega"
+		"pie pie";
+
+		margin: 1%;
+		margin-top: .5%;
+		background-image: url(../imagenes/fondo_pagina.jpg);
+		background-size: cover;
+	  }
+
+
+	  #boton-abrircarrito{
+		width: 25%;
+		font-size: 100%;
+	}
+	
+
+
+	#productos {
+		display: grid;
+		grid-area: productos;
+		justify-items: center;
+		grid-template-columns: 22% 22% 22% 22%;
+		margin: 0%;
+		grid-row-gap: 25px;
+		margin-bottom: 1%;
+		grid-column-gap: 3%;
+	}
+
+	#footer {
+		grid-area: pie;
+		background-color: rgba(255, 255, 255, 0.705);
+		display: grid;
+		grid-template-columns: 23% 23% 23% 23%;
+		grid-column-gap: 2%;
+	}
+
+}
+
+
+@media screen and (max-width: 1024px) {
+	#grid-area {
+	    display: grid;
+    grid-template-areas:
+	"logo logo "
+	"categorias categorias"
+	"buscador buscador"
+	"productos productos"
+	"entrega entrega"
+	"pie pie";
+    margin: 0%;
+    box-sizing: border-box
+
+	}
+
+	#boton-abrircarrito{
+		width: 23%;
+		font-size: 100%;
+	}
+
+	.fa-shopping-cart {
+		font-size: 103%;
+		transition: font-size 0.5s;
+		padding: 0px 10px;
+		cursor: pointer;
+
+		&:hover {
+			color: rgb(0, 0, 0);
+			font-size: 115%;
+			padding: 0px 10px;
+		}
+		
+	}
+
+	.shop-cart{
+		font-size: 100%;
+		display: flex;
+	}
+	
+	#buscadores {
+		grid-area: buscador;
+		justify-items: stretch;
+	}
+	.form {
+		display: flex;
+		grid-area: buscador;
+		justify-items: stretch;
+		width: 100%;
+		height: fit-content;
+		margin: 0%;
+	}
+	
+	#buscarProducto{
+		margin-right: 2%;
+	}
+	
+	.buscadorFiltrado{
+		display: none;
+	}
+
+	header {
+		grid-area: logo;
+		justify-items: stretch;
+		align-items: auto;
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		box-sizing: border-box;
+		height: fit-content;
+
+	}
+	.secciondearriba {
+		display: flex;
+		justify-content: space-evenly;
+		margin-top: 0%;
+	}
+	.seccion {
+		padding: 2px;
+		transition: all 0.5s;
+		list-style: none;
+		background: local;
+		
+		&:hover {
+			background: linear-gradient(#f061d1, transparent);
+			border-radius: 10px;
+			transition: all 0.5s;
+			padding: 10px;
+			text-decoration: none;
+			color: rgb(0, 0, 0);		}
+		a {
+			text-decoration: none;
+			color: rgb(0, 0, 0);
+			background: rgba(255, 255, 255, 0);
+			font-family: 'Lato', sans-serif;
+			font-size: 130%;
+			&:hover {
+				background: linear-gradient(#ffffff00, transparent);
+				text-decoration: none;
+				color: white;
+				transition: all 0.5s;
+			}
+		}
+	}
+	#productos {
+		display: grid;
+		grid-area: productos;
+		justify-items: center;
+		grid-template-columns: 30% 30% 30%;
+		margin: 0%;
+		grid-row-gap: 25px;
+		margin-bottom: 1%;
+		grid-column-gap: 3%;
+	}
+	
+	.listadeproductos {
+		display: flex;
+		justify-content: space-around;
+		margin: 1%;
+		padding: 2%;
+	}
+	.product-item {
+		display: flex;
+		background: linear-gradient(180deg, white, rgb(255, 157, 211));
+		transition: all 0.6s;
+		border-radius: 8px;
+		width: 100%;
+		height: 100%;
+		flex-direction: column;
+		justify-content: space-between;
+		cursor: pointer;
+	
+			
+		&:hover {
+			box-shadow: 5px -4px 7px 1px rgb(0 0 0 / 47%);
+			text-decoration: none;
+			background: linear-gradient(180deg, rgb(255, 255, 255), rgb(255, 108, 189));
+	
+			.tituloProducto{
+				color: rgb(5, 18, 59);
+				transition: all .5s;
+				font-size: 180%;
+	
+			}
+		}
+	
+		img {
+			width: 100%;
+			height: 280px;
+			border-radius: 10px;
+		}
+	}
+	
+
+	$color_1: rgb(32, 6, 182);
+$color_2: red;
+$background-color_1: rgba(0, 0, 0, 0.3);
+$background-color_2: white;
+
+.comprar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: $background-color_1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all .5s;
+	opacity: 0;
+	visibility: hidden;
+}
+.comprar-active {
+	opacity: 1;
+	visibility: visible;
+	.carritodecompra {
+		margin-top: 0;
+	
+
+	}
+}
+.carritodecompra {
+	position: relative;
+	background-color: $background-color_2;
+	min-width: 80%;
+	padding: 30px;
+	margin-top: -100%;
+	transition: all .5s;
+	h3 {
+		color: $color_1;
+		padding-bottom: 5px;
+	}
+	#carritoCerrar {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		font-size: 10%;
+		color: $color_2;
+		border: none;
+		background-color: $background-color_2;
+		
+		&:hover {
+			cursor: pointer;
+		}
+		&:focus {
+			outline: none;
+		}
+		#carritoCerrar-active{
+			.comprar-active{
+				visibility: hidden;
+			}
+		}
+	}
+	.precioProducto {
+		padding-top: 10px;
+	}
+	img{
+		width: 80px;
+		height: 80px;
+	}
+
+}
+
+	.navmenu {
+		grid-area: nav;
+	}
+	#categoria {
+		grid-area: categoria;
+		align-items: center;
+		margin-top: 1%;
+		object-fit: contain;
+
+	}
+	.category_list {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		.category_item {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 15px;
+			background-color: rgba(255, 2, 44, 0.233);
+			text-align: center;
+			text-decoration: solid;
+			color: white;
+			transition: all 0.6s;
+		}
+		.ct_item-active {
+			background-color: rgba(133, 17, 75, 0.829);
+		}
+	}
+
+	#footer {
+		grid-area: pie;
+		background-color: rgba(255, 255, 255, 0.705);
+		display: grid;
+		grid-template-columns: 23% 23% 23% 23%;
+		grid-column-gap: 2%;
+	}
+
+
+
+
+}
+
+@media screen and (max-width: 700px) {
+
+	#productos {
+		display: grid;
+		grid-area: productos;
+		justify-items: center;
+		grid-template-columns: 45% 45%;
+		margin: 0%;
+		grid-row-gap: 25px;
+		margin-bottom: 1%;
+		grid-column-gap: 3%;
+	}
+	.product-item {
+		display: flex;
+		background: linear-gradient(180deg, white, rgb(255, 157, 211));
+		transition: all 0.6s;
+		border-radius: 8px;
+		width: 100%;
+		height: 100%;
+		flex-direction: column;
+		justify-content: space-between;
+		cursor: pointer;
+	
+			
+		&:hover {
+			box-shadow: 5px -4px 7px 1px rgb(0 0 0 / 47%);
+			text-decoration: none;
+			background: linear-gradient(180deg, rgb(255, 255, 255), rgb(255, 108, 189));
+	
+			.tituloProducto{
+				color: rgb(5, 18, 59);
+				transition: all .5s;
+				font-size: 180%;
+	
+			}
+		}
+	
+		img {
+			width: 100%;
+			height: 280px;
+			border-radius: 10px;
+		}
+	}
+
+.social-bar{
+	display: none;
+}
+
+.NavMenu {
+		grid-area: nav;
+		font-family: "Lato", sans-serif;
+		font-size: 130%;
+		overflow: hidden;
+		width: 100%;
+}
+
+.categoria_arrow {
+    margin-top: 3%;
+    width: 4%;
+    transition: transform 1s;
+    margin-left: 2%;
+}
+
+.secciondearriba {
+	display: flex;
+    margin: 0%;
+    background: linear-gradient(rgba(255, 193, 208, 0.72), rgba(231, 151, 233, 0));
+    padding: 5;
+    text-align: center;
+    align-items: center;
+
+	.imagen-principal{
+		width: 80%;
+	}
+}
+
+#boton-abrircarrito {
+    color: rgb(0, 0, 0);
+    font-size: 150%;
+    background: rgb(246 185 204 / 0%);
+    padding: 0%;
+    position: relative;
+    left: 70%;
+    display: flex;
+    border: none;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0%;
+    align-items: center;
+}
+
+.shop-cart{
+	display: none;
+}
+
+
+#boton-abrircarrito {
+	width: 10%;
+}
+
+#footer {
+    grid-area: pie;
+    background-color: rgba(255, 255, 255, 0.705);
+    display: flex;
+    flex-direction: column;
+}
+
+
+}
+
+
+@media screen and (max-width: 500px) {
+
+
+
+#grid-area {
+	grid-row-gap: 2px;
+	flex-direction: column;
+	margin: 0%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	width: 98%;
+}
+.form {
+	display: flex;
+	grid-area: buscador;
+	justify-items: stretch;
+	width: 100%;
+	height: fit-content;
+	margin: 0%;
+}
+
+
+
+#buscadores {
+    grid-area: buscador;
+    justify-items: stretch;
+    background: linear-gradient(45deg, #00adff45, #ff00ebd1);
+    border: ridge;
+}
+
+header {
+	grid-area: logo;	
+}
+
+.secciondearriba {
+    display: flex;
+    margin: 0%;
+    background: linear-gradient(rgba(255, 193, 208, 0.72), rgba(231, 151, 233, 0));
+    align-items: stretch;
+    padding: 5;
+    text-align: center;
+    flex-direction: column;
+	.imagen-principal{
+		width: 50%;	
+	}
+}
+.seccion {
+	padding: 8px;
+	transition: all 0.5s;
+	list-style: none;
+	margin-right: 8%;
+	background: local;
+	
+    &:hover {
+		background: linear-gradient(#f061d1, transparent);
+		border-radius: 10px;
+		transition: all 0.5s;
+		padding: 15px;
+		text-decoration: none;
+		color: rgb(0, 0, 0);
+	}
+	a {
+		text-decoration: none;
+		color: rgb(0, 0, 0);
+		background: rgba(255, 255, 255, 0);
+		font-family: 'Lato', sans-serif;
+		font-size: 130%;
+		&:hover {
+			background: transparent;
+			text-decoration: none;
+			color: white;
+		}
+	}
+}
+
+	.social-bar {
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		z-index: 100;
+		height: fit-content;
+		top: 0%;
+		position: absolute;
+		top: 0%;
+	}
+	.icon {
+		color: white;
+		text-decoration: none;
+		padding: 50%;
+		display: flex;
+		width: 30px;
+		height: fit-content;
+		margin-left: 1px;
+		transition: all .3s;
+		align-items: center;
+		&:hover {
+			width: 60px;
+			transition: all .3s;
+			border-radius: 25px;
+		}
+	}
+	.icon-facebook2 {
+		background: #2c0394;
+		color: white;
+		border-radius: 5px;
+		float: left;
+		padding: 10px;
+		display: none;
+	}
+	.icon-instagram {
+		background: #cc21b0;
+		border-radius: 5px;
+		float: left;
+		padding: 10px;
+		display: none;
+	}
+	.envioflores {
+		text-align: center;
+		font-family: 'Fleur De Leah', cursive;
+		font-size: 100px;
+		margin: 0%;
+		padding: 0%;
+	}
+	#productos {
+		display: grid;
+		grid-area: productos;
+		justify-items: center;
+		grid-template-columns: 47% 47%;
+		grid-row-gap: 16px;
+		padding-top: 0.5%;
+		width: 100%;
+	
+	}
+
+	.listadeproductos {
+		display: flex;
+		justify-content: space-around;
+		margin: 5%;
+		padding: 5%;
+	}
+.product-item {
+    background: linear-gradient (180deg, white, rgb(255, 157, 211));
+
+    transition: all 0.6s;
+    width: 95%;
+    display: flex;
+    margin: 1%;
+    border-radius: 15px;
+    height: 100%;
+
+		&:hover {
+			-webkit-box-shadow: 10px 10px 14px 2px rgba(0,0,0,0.47);
+			box-shadow: 10px 10px 14px 2px rgba(0,0,0,0.47);
+		}
+		a {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			background: linear-gradient(45deg, rgb(125 40 189), rgb(255 0 141));
+			padding-top: 0%;
+			color: #fff;
+			text-align: center;
+			height: 200px;
+			border-radius: 18px;
+			align-items: center;
+		}
+		img {
+			
+			width: 100%;
+			height: 155px;
+			background: #603942;
+		}
+}
+.EnvioFlores {
+		font-size: 52px;
+}
+
+
+.navmenu {
+	grid-area: nav;
+    font-size: 29px;
+    font-family: sans-serif;
+    width: 100%;
+}
+#categoria {
+		flex-direction: row;
+		align-items: center;
+		margin-top: 1%;
+		display: flex;
+		
+}
+
+.elegircategoria {
+    font-size: 100%;
+    color: #000000;
+    background: linear-gradient(#ffa3eb, transparent);
+    margin: 0;
+    padding: 2%;
+    border-radius: 10px;
+
+}
+.arrow{
+	
+	.categoria_arrow{
+		margin-top: 3%;
+		width: 4%;
+		margin-left: 2%;
+		transform: rotate(90deg);
+	}
+}
+
+.categoria_arrow{
+	margin-top: 3%;
+    width: 4%;
+    transition: transform 1s;
+    margin-left: 2%;
+}
+
+
+
+
+	#category_list {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin: 0%;
+		list-style: none;
+		padding: 0px;
+		height: 0;
+	
+		
+
+		.category_item {
+			display: block;
+			margin-bottom: 5px;
+			background: linear-gradient(rgb(240, 136, 228), rgb(255, 255, 255));
+			text-align: center;
+			color: rgb(27, 3, 3);
+			transition: all 0.4s;
+			font-family: "Courgette";
+		
+			&:hover {
+				-webkit-box-shadow: 10px 10px 14px 2px rgba(0,0,0,0.47);
+				box-shadow: 10px 10px 14px 2px rgba(0,0,0,0.47);
+			}
+		}
+		.ct_item-active {
+			background: linear-gradient(rgb(154, 136, 235), rgba(126, 221, 250, 0.815));
+			text-align: center;
+		}
+}
+
+.shop-cart{
+	display: none;
+}
+
+.botonescompra{
+	display: flex;
+	flex-direction: column;
+
+}
+#productoseleccionado {
+    display: grid;
+    grid-template-areas:
+        "titulo titulo"
+        "imagen cantidad"
+        "imagen colorrosas";
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    width: 100%;
+    grid-auto-columns: 50%
+}
+#adicionales {
+		display: flex;
+		background-color: white;
+		flex-wrap: wrap;
+		height: auto;
+
+}
+.adic {
+		display: flex;
+		height: fit-content;
+		width: 100%;
+		flex-direction: column;
+		text-align: center;
+		font-family:'Courgette';
+}
+
+
+.icon-facebook {
+	background: #2c0394;
+	color: white;
+	border-radius: 10px;
+	float: left;
+	&:before {
+		content: "\e900";
+		color: white;
+	}
+}
+.envioflores {
+	text-align: center;
+	font-family: 'Fleur De Leah', cursive;
+	font-size: 100px;
+	margin: 0%;
+	padding: 0%;
+}
+
+#footer {
+	grid-area: pie;
+    background-color: rgba(255, 255, 255, 0.705);
+    display: flex;
+    flex-direction: column;
+}
+
+}
+
+
+#buscarProducto{
+	margin-right: 2%;
+}
+
+.buscadorFiltrado{
+	display: none;
+}

@@ -1,0 +1,1525 @@
+@charset "UTF-8";
+/* ======= BODY =======*/
+/*  BUSCADORES Y SELECCION DE ENTREGA */
+/* HEADER */
+/* ICONOS DE FB E INSTAGRAM Y LOGO ENVIO FLORES */
+/* redes sociales =======*/
+/* LOGO ENVIO FLORES */
+/* logo cuando seleccionan el producto */
+/* NAVEGADOR Y CATEGORIAS */
+/* OCACIONES */
+/* PRODUCTOS */
+/* PRODUCTO SELECCIONADO */
+/* finalizar o seguir comprando */
+/* ADICIONALES */
+/* REGISTRO */
+/* FOOTER */
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 0%;
+}
+
+#grid-area {
+  display: grid;
+  grid-template-areas: "logo logo " "buscador buscador" "productos productos" "entrega entrega" "pie pie";
+  margin: 1%;
+  margin-top: 0.5%;
+  background-image: url(../imagenes/fondo_pagina.jpg);
+  background-size: cover;
+}
+
+#buscadores {
+  grid-area: buscador;
+  justify-items: stretch;
+  margin-bottom: 1%;
+}
+
+.form {
+  display: flex;
+  grid-area: buscador;
+  justify-items: stretch;
+  width: 100%;
+  height: fit-content;
+  margin: 0%;
+}
+
+#buscarProducto {
+  margin-right: 2%;
+}
+
+.buscadorFiltrado {
+  display: none;
+}
+
+header {
+  grid-area: logo;
+}
+
+.secciondearriba {
+  display: flex;
+  margin: 0%;
+  background: linear-gradient(rgba(255, 193, 208, 0.72), rgba(231, 151, 233, 0));
+  align-items: center;
+  padding: 5;
+  text-align: center;
+}
+
+.seccion {
+  padding: 8px;
+  transition: all 0.5s;
+  list-style: none;
+  margin-right: 8%;
+  background: local;
+}
+.seccion:hover {
+  background: linear-gradient(#f061d1, transparent);
+  border-radius: 10px;
+  transition: all 0.5s;
+  padding: 15px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.seccion a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  background: rgba(255, 255, 255, 0);
+  font-family: "Lato", sans-serif;
+  font-size: 130%;
+}
+.seccion a:hover {
+  background: transparent;
+  text-decoration: none;
+  color: white;
+}
+
+.imagen-logo {
+  width: 100%;
+}
+
+.social-bar {
+  display: flex;
+  flex-direction: column;
+  right: -8px;
+  align-items: flex-end;
+  z-index: 100;
+  top: 140px;
+  height: fit-content;
+  position: absolute;
+  float: right;
+  transition: all 0.5s;
+}
+.social-bar:hover {
+  right: -3px;
+  transition: all 0.8s;
+}
+
+.icon {
+  color: white;
+  text-decoration: none;
+  width: 50px;
+  height: fit-content;
+  transition: all 0.3s;
+  display: block;
+  text-align: left;
+}
+.icon:hover {
+  width: 75px;
+  transition: all 0.6s;
+  color: white;
+  text-align: left;
+}
+
+.icon-facebook2 {
+  background: #2c0394;
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.icon-instagram {
+  background: #cc21b0;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.d-flex {
+  display: flex !important;
+  width: inherit;
+  height: 250px;
+}
+
+.logo_en_producto {
+  width: 95%;
+  height: 250px;
+  background: local;
+}
+
+#productos {
+  display: grid;
+  grid-area: productos;
+  justify-items: center;
+  grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5%;
+  margin: 0%;
+  grid-row-gap: 25px;
+  margin-bottom: 1%;
+  grid-column-gap: 3%;
+}
+
+.listadeproductos {
+  display: flex;
+  justify-content: space-around;
+  margin: 1%;
+  padding: 2%;
+}
+
+.product-item {
+  display: flex;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.37), rgb(255, 157, 211));
+  transition: all 0.6s;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.product-item:hover {
+  box-shadow: 5px -4px 7px 1px rgba(0, 0, 0, 0.47);
+  text-decoration: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.623), rgb(255, 108, 189));
+}
+.product-item:hover .tituloProducto {
+  color: rgb(5, 18, 59);
+  transition: all 0.5s;
+  font-size: 160%;
+}
+.product-item img {
+  width: 100%;
+  height: 280px;
+  border-radius: 10px;
+}
+
+.comprar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.comprar-active {
+  opacity: 1;
+  visibility: visible;
+}
+.comprar-active .carritodecompra {
+  margin-top: 0;
+}
+
+.carritodecompra {
+  position: relative;
+  background: white;
+  min-width: 900px;
+  border-radius: 7%;
+  padding: 30px;
+  margin-top: -100%;
+  transition: all 0.5s;
+}
+.carritodecompra h3 {
+  color: rgb(32, 6, 182);
+  padding-bottom: 5px;
+}
+.carritodecompra #carritoCerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  color: red;
+  border: none;
+  background-color: white;
+  transition: all 0.5s;
+}
+.carritodecompra #carritoCerrar:hover {
+  cursor: pointer;
+  font-size: 150%;
+  color: rgb(150, 0, 0);
+}
+.carritodecompra #carritoCerrar:focus {
+  outline: none;
+}
+.carritodecompra #carritoCerrar #carritoCerrar-active .comprar-active {
+  visibility: hidden;
+}
+.carritodecompra .precioProducto {
+  padding-top: 10px;
+}
+.carritodecompra img {
+  width: 80px;
+  height: 80px;
+}
+
+.fa-times-circle:hover {
+  padding: 5%;
+}
+
+#boton-abrircarrito {
+  color: rgb(0, 0, 0);
+  font-size: 150%;
+  background: rgba(246, 185, 204, 0.4705882353);
+  padding: 0%;
+  position: relative;
+  left: 70%;
+  display: flex;
+  border: groove;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: 0%;
+  width: 25%;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.fa-shopping-cart {
+  font-size: 120%;
+  transition: font-size 0.3s;
+}
+.fa-shopping-cart:hover {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  font-size: 150%;
+  padding: 3px 20px;
+}
+.fa-shopping-cart :focus {
+  outline: none;
+}
+
+#contadorCarrito {
+  margin-right: 5%;
+}
+
+.shop-cart {
+  color: black;
+  margin: 0%;
+  background: rgba(255, 255, 255, 0.527);
+  padding: 9.5px 18.5px;
+  font-family: "Quintessential";
+}
+
+.productoEnCarrito {
+  border-left: 7px solid rgb(203, 19, 148);
+  background: rgba(220, 209, 218, 0.281);
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.5s;
+}
+.productoEnCarrito:hover {
+  border-left: 7px solid rgb(8, 152, 171);
+}
+.productoEnCarrito p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.adicionalEnCarrito {
+  border-left: 5px solid rgb(161, 23, 120);
+  background: rgba(236, 208, 230, 0.281);
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.adicionalEnCarrito:hover {
+  border-left: 5px solid rgb(201, 0, 0);
+}
+.adicionalEnCarrito p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tituloProducto {
+  font-family: "Quintessential", cursive;
+  transition: 1.5s all;
+  color: black;
+}
+
+.descripcion {
+  font-family: "Courgette";
+  margin-bottom: 0.5%;
+}
+
+.elijaTamaño {
+  align-self: center;
+}
+
+.precioProd {
+  color: rgb(48, 0, 0);
+  font-family: "Font Awesome 5 Free";
+  margin-left: 10px;
+  margin-top: 10px;
+  transition: all 1.5s;
+}
+.precioProd:hover {
+  color: rgb(49, 27, 27);
+  transition: all 1s;
+  font-size: 120%;
+}
+
+.precioProducto {
+  font-family: "Courgette";
+  font-size: larger;
+}
+
+.boton-eliminar {
+  color: rgb(161, 9, 72);
+  border: rgb(241, 135, 153) solid 1px;
+  font-size: 20px;
+}
+.boton-eliminar:hover {
+  cursor: pointer;
+}
+.boton-eliminar :focus {
+  outline: none;
+}
+
+#btn-prod {
+  display: flex;
+  align-self: center;
+}
+
+.botonagregado {
+  color: black;
+  border: 0.5px solid rgba(0, 0, 0, 0.384);
+  background: linear-gradient(181deg, #ffb8ed, #ff57d5);
+  text-decoration: none;
+  text-align: center;
+  transition: all 1.5s;
+  align-self: center;
+  width: 50px;
+  border-radius: 5px;
+}
+.botonagregado:hover {
+  transition: all 2s;
+  color: white;
+  background: linear-gradient(181deg, #ef198d, #f13131);
+}
+
+.button-add {
+  background-color: rgb(249, 133, 196);
+  padding: 2.5%;
+  border: 0.5px solid rgb(172, 3, 107);
+  text-decoration: none;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  transition: all 0.5s;
+  align-self: center;
+  width: 90%;
+  border-radius: 5px;
+}
+.button-add:hover {
+  -webkit-box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 2%;
+  background-color: rgb(209, 31, 31);
+}
+.button-add :focus {
+  outline: none;
+}
+
+.botones-carrito {
+  display: flex;
+  margin: 1.5%;
+}
+.botones-carrito .boton-vaciar {
+  background: linear-gradient(180deg, #eb81c7, transparent);
+  padding: 2.5%;
+  border: 0.5px solid rgba(255, 0, 157, 0.55);
+  text-decoration: none;
+  text-align: center;
+  color: #000000;
+  transition: all 0.5s;
+  margin-left: 15px;
+  width: 90%;
+  border-radius: 5px;
+}
+.botones-carrito .boton-vaciar:hover {
+  -webkit-box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  color: white;
+  text-decoration: none;
+  padding: 2%;
+  background-color: rgb(209, 31, 31);
+}
+.botones-carrito .boton-vaciar :focus {
+  outline: none;
+}
+.botones-carrito .button-finish {
+  background: linear-gradient(180deg, #0a58ca, transparent);
+  padding: 2.5%;
+  border: 0.5px solid #0a58ca;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  transition: all 0.5s;
+  margin-left: 15px;
+  width: 90%;
+  border-radius: 5px;
+  border-radius: 5px;
+}
+.botones-carrito .button-finish:hover {
+  -webkit-box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  color: white;
+  text-decoration: none;
+  padding: 2%;
+  background-color: rgb(46, 8, 95);
+}
+.botones-carrito .button-finish :focus {
+  outline: none;
+}
+
+.productos-active {
+  display: grid;
+  grid-area: productos;
+  justify-items: center;
+  grid-template-columns: 30% 30% 30%;
+  padding-top: 0.5%;
+  margin: 0%;
+  grid-column-gap: 1.5%;
+  grid-row-gap: 50px;
+}
+.productos-active .prodSelecAdicional {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.productoSeleccionado {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  text-align-last: center;
+  background: linear-gradient(155deg, white, rgba(255, 255, 255, 0.1215686275));
+}
+.productoSeleccionado .tituloProducto {
+  font-size: x-large;
+}
+.productoSeleccionado .precioProducto {
+  font-size: x-large;
+}
+.productoSeleccionado img {
+  align-self: center;
+  width: 50%;
+}
+
+.CANTIDADROSAS {
+  display: flex;
+  flex-direction: column;
+}
+
+.colorrosas {
+  display: flex;
+  flex-direction: column;
+}
+
+.botonescompra {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  width: 200px;
+}
+
+.checkadicional {
+  font-family: "FontAwesome";
+  font-size: 105%;
+  padding: 5%;
+}
+
+.tituloProdSelec {
+  display: flex;
+  position: absolute;
+  top: 59%;
+  left: 21%;
+}
+
+.prodAdicionales {
+  display: grid;
+  grid-area: prodAdicionales;
+  justify-items: center;
+  grid-template-columns: 30% 30% 30%;
+  padding-top: 0.5%;
+  margin: 0%;
+  grid-column-gap: 1.5%;
+  grid-row-gap: 50px;
+}
+
+#section-adicionales {
+  display: grid;
+  grid-area: prodAdicionales;
+  grid-template-rows: auto;
+  grid-column-gap: 2%;
+  grid-template-columns: 17% 17% 17% 17% 17%;
+  justify-items: center;
+  align-items: center;
+}
+#section-adicionales img {
+  width: 180px;
+  align-self: center;
+}
+
+.adicionales {
+  display: block;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.473);
+  justify-items: center;
+  align-items: center;
+}
+.adicionales img {
+  width: 180px;
+  align-self: center;
+}
+.adicionales .tituloProducto {
+  font-family: serif;
+}
+
+.tamAdicional {
+  font-size: larger;
+  font-family: "Courgette";
+}
+
+.carritoAdicionales {
+  border-left: 7px solid rgb(32, 23, 161);
+  background: rgba(236, 208, 230, 0.281);
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  transition: all 1s;
+}
+.carritoAdicionales img {
+  width: 80px;
+  height: 80px;
+}
+.carritoAdicionales:hover {
+  border-left: 7px solid rgb(255, 238, 0);
+}
+
+.produadic {
+  width: 150px;
+  height: 150px;
+}
+
+.adic {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: 2%;
+  width: 50%;
+}
+
+#datosDeEntrega {
+  position: absolute;
+  background: #4a63df;
+  padding: 1%;
+  right: 11px;
+  top: 350px;
+  transition: all 0.5s;
+  border-radius: 2px;
+  color: white;
+}
+#datosDeEntrega a {
+  color: white;
+  text-decoration: none;
+}
+#datosDeEntrega:hover {
+  padding: 1.5%;
+  background: linear-gradient(183deg, #78a3e3, rgb(255, 40, 158));
+  border-radius: 5px;
+}
+
+.opcionTam {
+  padding: 2%;
+  text-align: center;
+  font-family: fantasy;
+  width: 80%;
+  align-items: baseline;
+  align-self: center;
+}
+
+#entrega {
+  display: grid;
+  grid-area: entrega;
+  background: rgba(128, 128, 128, 0.699);
+}
+
+#formulario-envio {
+  margin: 1%;
+}
+#formulario-envio label {
+  display: block;
+  font-size: larger;
+  font-family: cursive;
+}
+#formulario-envio #nombreRecibe {
+  margin: 0.5%;
+  width: 50%;
+}
+#formulario-envio #apellidoRecibe {
+  margin: 0.5%;
+  width: 50%;
+}
+#formulario-envio #calleRecibe {
+  margin: 0.5%;
+  width: 50%;
+}
+#formulario-envio #telefonoRecibe {
+  margin: 0.5%;
+  width: 50%;
+}
+#formulario-envio #nombreTarjeta {
+  margin: 0.5%;
+  width: 50%;
+}
+#formulario-envio #numeroTarjeta {
+  margin: 0.5%;
+  width: 50%;
+}
+
+#registro {
+  display: flex;
+  flex-direction: column;
+}
+
+#footer {
+  grid-area: pie;
+  background-color: rgba(255, 255, 255, 0.705);
+  display: grid;
+  grid-template-columns: 23% 23% 23% 23%;
+  grid-column-gap: 2%;
+}
+
+.link-fot {
+  margin: 1%;
+}
+.link-fot .webAflorar {
+  font-size: x-large;
+}
+
+.mediosDePago {
+  margin: 1%;
+}
+
+.tarjeta-foot {
+  margin-right: 7%;
+  width: 17%;
+  margin-bottom: 6%;
+}
+
+.contacto {
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacto-tel {
+  font-size: large;
+  text-decoration: none;
+}
+
+.contacto-mail {
+  font-size: large;
+  text-decoration: none;
+}
+
+.fa-phone {
+  margin-right: 2%;
+  color: black;
+  font-size: x-large;
+}
+
+.fa-envelope {
+  margin-right: 4%;
+  color: rgb(70, 0, 70);
+  font-size: x-large;
+}
+
+.social-bar-footer {
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inst-foot {
+  font-size: x-large;
+  color: rgb(104, 0, 52);
+  text-decoration: none;
+}
+
+.fa-instagram {
+  margin-right: 2%;
+  color: rgb(70, 0, 70);
+  font-size: x-large;
+}
+
+.fb-foot {
+  font-size: x-large;
+  color: blue;
+  text-decoration: none;
+}
+
+.fa-facebook-square {
+  margin-right: 2%;
+  color: black;
+  font-size: x-large;
+}
+
+#buscarProducto {
+  margin-right: 2%;
+}
+
+.buscadorFiltrado {
+  display: none;
+}
+
+/*======================== VISTA TABLETS ===========================*/
+/* GRID AREA */
+/* HEADER */
+/* productos vista movil */
+/* categorias vista movil */
+/*======================== VISTA CELULARES ===========================*/
+/* GRID AREA */
+/* HEADER */
+/* ICONOS DE FB E INSTAGRAM Y LOGO ENVIO FLORES */
+/* redes sociales =======*/
+/* LOGO ENVIO FLORES */
+/* productos vista movil */
+/* redes sociales =======*/
+/* LOGO ENVIO FLORES */
+/* VISTA DISPOISTIVOS */
+/* productos vista dispositivos */
+/* categorias vista movil */
+/* VISTA CELULARES */
+/* BODY */
+/* TITULO */
+/* SOCIAL BAR */
+/* NAV */
+/* CATEGORIA VISTA CELULAR */
+/* productos vista movil */
+/* adicionales vista celular */
+/* FOOTER VISTA CELULAR */
+@media screen and (max-width: 1280px) {
+  #grid-area {
+    display: grid;
+    grid-template-areas: "logo logo " "categorias categorias" "buscador buscador" "productos productos" "entrega entrega" "pie pie";
+    margin: 1%;
+    margin-top: 0.5%;
+    background-image: url(../imagenes/fondo_pagina.jpg);
+    background-size: cover;
+  }
+
+  #boton-abrircarrito {
+    width: 25%;
+    font-size: 100%;
+  }
+
+  #productos {
+    display: grid;
+    grid-area: productos;
+    justify-items: center;
+    grid-template-columns: 22% 22% 22% 22%;
+    margin: 0%;
+    grid-row-gap: 25px;
+    margin-bottom: 1%;
+    grid-column-gap: 3%;
+  }
+
+  #footer {
+    grid-area: pie;
+    background-color: rgba(255, 255, 255, 0.705);
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-column-gap: 2%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #grid-area {
+    display: grid;
+    grid-template-areas: "logo logo " "categorias categorias" "buscador buscador" "productos productos" "entrega entrega" "pie pie";
+    margin: 0%;
+    box-sizing: border-box;
+  }
+
+  #boton-abrircarrito {
+    width: 23%;
+    font-size: 100%;
+  }
+
+  .fa-shopping-cart {
+    font-size: 103%;
+    transition: font-size 0.5s;
+    padding: 0px 10px;
+    cursor: pointer;
+  }
+  .fa-shopping-cart:hover {
+    color: rgb(0, 0, 0);
+    font-size: 115%;
+    padding: 0px 10px;
+  }
+
+  .shop-cart {
+    font-size: 100%;
+    display: flex;
+  }
+
+  #buscadores {
+    grid-area: buscador;
+    justify-items: stretch;
+  }
+
+  .form {
+    display: flex;
+    grid-area: buscador;
+    justify-items: stretch;
+    width: 100%;
+    height: fit-content;
+    margin: 0%;
+  }
+
+  #buscarProducto {
+    margin-right: 2%;
+  }
+
+  .buscadorFiltrado {
+    display: none;
+  }
+
+  header {
+    grid-area: logo;
+    justify-items: stretch;
+    align-items: auto;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    box-sizing: border-box;
+    height: fit-content;
+  }
+
+  .secciondearriba {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0%;
+  }
+
+  .seccion {
+    padding: 2px;
+    transition: all 0.5s;
+    list-style: none;
+    background: local;
+  }
+  .seccion:hover {
+    background: linear-gradient(#f061d1, transparent);
+    border-radius: 10px;
+    transition: all 0.5s;
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+  .seccion a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0);
+    font-family: "Lato", sans-serif;
+    font-size: 130%;
+  }
+  .seccion a:hover {
+    background: linear-gradient(rgba(255, 255, 255, 0), transparent);
+    text-decoration: none;
+    color: white;
+    transition: all 0.5s;
+  }
+
+  #productos {
+    display: grid;
+    grid-area: productos;
+    justify-items: center;
+    grid-template-columns: 30% 30% 30%;
+    margin: 0%;
+    grid-row-gap: 25px;
+    margin-bottom: 1%;
+    grid-column-gap: 3%;
+  }
+
+  .listadeproductos {
+    display: flex;
+    justify-content: space-around;
+    margin: 1%;
+    padding: 2%;
+  }
+
+  .product-item {
+    display: flex;
+    background: linear-gradient(180deg, white, rgb(255, 157, 211));
+    transition: all 0.6s;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .product-item:hover {
+    box-shadow: 5px -4px 7px 1px rgba(0, 0, 0, 0.47);
+    text-decoration: none;
+    background: linear-gradient(180deg, rgb(255, 255, 255), rgb(255, 108, 189));
+  }
+  .product-item:hover .tituloProducto {
+    color: rgb(5, 18, 59);
+    transition: all 0.5s;
+    font-size: 180%;
+  }
+  .product-item img {
+    width: 100%;
+    height: 280px;
+    border-radius: 10px;
+  }
+
+  .comprar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .comprar-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .comprar-active .carritodecompra {
+    margin-top: 0;
+  }
+
+  .carritodecompra {
+    position: relative;
+    background-color: white;
+    min-width: 80%;
+    padding: 30px;
+    margin-top: -100%;
+    transition: all 0.5s;
+  }
+  .carritodecompra h3 {
+    color: rgb(32, 6, 182);
+    padding-bottom: 5px;
+  }
+  .carritodecompra #carritoCerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 10%;
+    color: red;
+    border: none;
+    background-color: white;
+  }
+  .carritodecompra #carritoCerrar:hover {
+    cursor: pointer;
+  }
+  .carritodecompra #carritoCerrar:focus {
+    outline: none;
+  }
+  .carritodecompra #carritoCerrar #carritoCerrar-active .comprar-active {
+    visibility: hidden;
+  }
+  .carritodecompra .precioProducto {
+    padding-top: 10px;
+  }
+  .carritodecompra img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .navmenu {
+    grid-area: nav;
+  }
+
+  #categoria {
+    grid-area: categoria;
+    align-items: center;
+    margin-top: 1%;
+    object-fit: contain;
+  }
+
+  .category_list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .category_list .category_item {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 2, 44, 0.233);
+    text-align: center;
+    text-decoration: solid;
+    color: white;
+    transition: all 0.6s;
+  }
+  .category_list .ct_item-active {
+    background-color: rgba(133, 17, 75, 0.829);
+  }
+
+  #footer {
+    grid-area: pie;
+    background-color: rgba(255, 255, 255, 0.705);
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-column-gap: 2%;
+  }
+}
+@media screen and (max-width: 700px) {
+  #productos {
+    display: grid;
+    grid-area: productos;
+    justify-items: center;
+    grid-template-columns: 45% 45%;
+    margin: 0%;
+    grid-row-gap: 25px;
+    margin-bottom: 1%;
+    grid-column-gap: 3%;
+  }
+
+  .product-item {
+    display: flex;
+    background: linear-gradient(180deg, white, rgb(255, 157, 211));
+    transition: all 0.6s;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .product-item:hover {
+    box-shadow: 5px -4px 7px 1px rgba(0, 0, 0, 0.47);
+    text-decoration: none;
+    background: linear-gradient(180deg, rgb(255, 255, 255), rgb(255, 108, 189));
+  }
+  .product-item:hover .tituloProducto {
+    color: rgb(5, 18, 59);
+    transition: all 0.5s;
+    font-size: 180%;
+  }
+  .product-item img {
+    width: 100%;
+    height: 280px;
+    border-radius: 10px;
+  }
+
+  .social-bar {
+    display: none;
+  }
+
+  .NavMenu {
+    grid-area: nav;
+    font-family: "Lato", sans-serif;
+    font-size: 130%;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .categoria_arrow {
+    margin-top: 3%;
+    width: 4%;
+    transition: transform 1s;
+    margin-left: 2%;
+  }
+
+  .secciondearriba {
+    display: flex;
+    margin: 0%;
+    background: linear-gradient(rgba(255, 193, 208, 0.72), rgba(231, 151, 233, 0));
+    padding: 5;
+    text-align: center;
+    align-items: center;
+  }
+  .secciondearriba .imagen-principal {
+    width: 80%;
+  }
+
+  #boton-abrircarrito {
+    color: rgb(0, 0, 0);
+    font-size: 150%;
+    background: rgba(246, 185, 204, 0);
+    padding: 0%;
+    position: relative;
+    left: 70%;
+    display: flex;
+    border: none;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0%;
+    align-items: center;
+  }
+
+  .shop-cart {
+    display: none;
+  }
+
+  #boton-abrircarrito {
+    width: 10%;
+  }
+
+  #footer {
+    grid-area: pie;
+    background-color: rgba(255, 255, 255, 0.705);
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 500px) {
+  #grid-area {
+    grid-row-gap: 2px;
+    flex-direction: column;
+    margin: 0%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 98%;
+  }
+
+  .form {
+    display: flex;
+    grid-area: buscador;
+    justify-items: stretch;
+    width: 100%;
+    height: fit-content;
+    margin: 0%;
+  }
+
+  #buscadores {
+    grid-area: buscador;
+    justify-items: stretch;
+    background: linear-gradient(45deg, rgba(0, 173, 255, 0.2705882353), rgba(255, 0, 235, 0.8196078431));
+    border: ridge;
+  }
+
+  header {
+    grid-area: logo;
+  }
+
+  .secciondearriba {
+    display: flex;
+    margin: 0%;
+    background: linear-gradient(rgba(255, 193, 208, 0.72), rgba(231, 151, 233, 0));
+    align-items: stretch;
+    padding: 5;
+    text-align: center;
+    flex-direction: column;
+  }
+  .secciondearriba .imagen-principal {
+    width: 50%;
+  }
+
+  .seccion {
+    padding: 8px;
+    transition: all 0.5s;
+    list-style: none;
+    margin-right: 8%;
+    background: local;
+  }
+  .seccion:hover {
+    background: linear-gradient(#f061d1, transparent);
+    border-radius: 10px;
+    transition: all 0.5s;
+    padding: 15px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+  .seccion a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0);
+    font-family: "Lato", sans-serif;
+    font-size: 130%;
+  }
+  .seccion a:hover {
+    background: transparent;
+    text-decoration: none;
+    color: white;
+  }
+
+  .social-bar {
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 100;
+    height: fit-content;
+    top: 0%;
+    position: absolute;
+    top: 0%;
+  }
+
+  .icon {
+    color: white;
+    text-decoration: none;
+    padding: 50%;
+    display: flex;
+    width: 30px;
+    height: fit-content;
+    margin-left: 1px;
+    transition: all 0.3s;
+    align-items: center;
+  }
+  .icon:hover {
+    width: 60px;
+    transition: all 0.3s;
+    border-radius: 25px;
+  }
+
+  .icon-facebook2 {
+    background: #2c0394;
+    color: white;
+    border-radius: 5px;
+    float: left;
+    padding: 10px;
+    display: none;
+  }
+
+  .icon-instagram {
+    background: #cc21b0;
+    border-radius: 5px;
+    float: left;
+    padding: 10px;
+    display: none;
+  }
+
+  .envioflores {
+    text-align: center;
+    font-family: "Fleur De Leah", cursive;
+    font-size: 100px;
+    margin: 0%;
+    padding: 0%;
+  }
+
+  #productos {
+    display: grid;
+    grid-area: productos;
+    justify-items: center;
+    grid-template-columns: 47% 47%;
+    grid-row-gap: 16px;
+    padding-top: 0.5%;
+    width: 100%;
+  }
+
+  .listadeproductos {
+    display: flex;
+    justify-content: space-around;
+    margin: 5%;
+    padding: 5%;
+  }
+
+  .product-item {
+    background: linear-gradient 180deg, white, rgb(255, 157, 211);
+    transition: all 0.6s;
+    width: 95%;
+    display: flex;
+    margin: 1%;
+    border-radius: 15px;
+    height: 100%;
+  }
+  .product-item:hover {
+    -webkit-box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+    box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  }
+  .product-item a {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(45deg, rgb(125, 40, 189), rgb(255, 0, 141));
+    padding-top: 0%;
+    color: #fff;
+    text-align: center;
+    height: 200px;
+    border-radius: 18px;
+    align-items: center;
+  }
+  .product-item img {
+    width: 100%;
+    height: 155px;
+    background: #603942;
+  }
+
+  .EnvioFlores {
+    font-size: 52px;
+  }
+
+  .navmenu {
+    grid-area: nav;
+    font-size: 29px;
+    font-family: sans-serif;
+    width: 100%;
+  }
+
+  #categoria {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1%;
+    display: flex;
+  }
+
+  .elegircategoria {
+    font-size: 100%;
+    color: #000000;
+    background: linear-gradient(#ffa3eb, transparent);
+    margin: 0;
+    padding: 2%;
+    border-radius: 10px;
+  }
+
+  .arrow .categoria_arrow {
+    margin-top: 3%;
+    width: 4%;
+    margin-left: 2%;
+    transform: rotate(90deg);
+  }
+
+  .categoria_arrow {
+    margin-top: 3%;
+    width: 4%;
+    transition: transform 1s;
+    margin-left: 2%;
+  }
+
+  #category_list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0%;
+    list-style: none;
+    padding: 0px;
+    height: 0;
+  }
+  #category_list .category_item {
+    display: block;
+    margin-bottom: 5px;
+    background: linear-gradient(rgb(240, 136, 228), rgb(255, 255, 255));
+    text-align: center;
+    color: rgb(27, 3, 3);
+    transition: all 0.4s;
+    font-family: "Courgette";
+  }
+  #category_list .category_item:hover {
+    -webkit-box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+    box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  }
+  #category_list .ct_item-active {
+    background: linear-gradient(rgb(154, 136, 235), rgba(126, 221, 250, 0.815));
+    text-align: center;
+  }
+
+  .shop-cart {
+    display: none;
+  }
+
+  .botonescompra {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #productoseleccionado {
+    display: grid;
+    grid-template-areas: "titulo titulo" "imagen cantidad" "imagen colorrosas";
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    width: 100%;
+    grid-auto-columns: 50%;
+  }
+
+  #adicionales {
+    display: flex;
+    background-color: white;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .adic {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    font-family: "Courgette";
+  }
+
+  .icon-facebook {
+    background: #2c0394;
+    color: white;
+    border-radius: 10px;
+    float: left;
+  }
+  .icon-facebook:before {
+    content: "\e900";
+    color: white;
+  }
+
+  .envioflores {
+    text-align: center;
+    font-family: "Fleur De Leah", cursive;
+    font-size: 100px;
+    margin: 0%;
+    padding: 0%;
+  }
+
+  #footer {
+    grid-area: pie;
+    background-color: rgba(255, 255, 255, 0.705);
+    display: flex;
+    flex-direction: column;
+  }
+}
+#buscarProducto {
+  margin-right: 2%;
+}
+
+.buscadorFiltrado {
+  display: none;
+}
+
+/*# sourceMappingURL=destino.css.map */
